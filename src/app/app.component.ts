@@ -29,20 +29,49 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
       return p;
     });
   }
+  selezionaPosto () { //input box per inserire un nominativo da inserire nel nostro teatro. Inserito il nominativo si fa click su un posto e il nominativo viene registrato nel bottone in corrispondenza al posto. Insieme, il colore del tasto diventa rosso per segnalare che il posto è occupato, e il contenuto dell'input box viene cancellato.
+    if ( prenotaEl.value !== "" ) {
+      this.value = prenotaEl.value;
+      this.style.color = "red";
+      prenotaEl.value="";
+    }
+    else
+      nomeEl.innerHTML = this.value 
+  };
+  toArray() { //funzione che trasforma l'array di bottoni in un array di stringhe
+    return this.prenotazione.map((fila) =>
+      fila.map( x => x.value)
+    );
+  }
+}
+
+const prenotaEl = document.getElementById('prenota');
+const nomeEl = document.getElementById('nome');
+
+//costanti che definiscono la grandezza del teatro 
+const nfilePlatea = 7;
+const npostiPlatea = 10;
+const nfilePalchi = 4;
+const npostiPalchi = 6;
+
+const teatro = { //stampa la platea e i palchi
+  platea: Array(nfilePlatea).fill("").map(() => Array(npostiPlatea).fill("x")),
+  palchi: Array(nfilePalchi).fill("").map(() => Array(npostiPalchi).fill("x")),
 };
 
-selezionaPosto() {//input box per inserire un nominativo da inserire nel nostro teatro. Inserito il nominativo si fa click su un posto e il nominativo viene registrato nel bottone in corrispondenza al posto. Insieme, il colore del tasto diventa rosso per segnalare che il posto è occupato, e il contenuto dell'input box viene cancellato.
-  if ( prenotaEl.value !== "" ) {
-    this.value = prenotaEl.value;
-    this.style.color = "red";
-    prenotaEl.value="";
-  }
-  else
-    nomeEl.innerHTML = this.value;
-}
+function mostraTeatro() { //mostra l'array risultante
+  console.log(plateaPrenotazione.toArray());
+  console.log(palchiPrenotazione.toArray());
+ }
 
-toArray() { //funzione che trasforma l'array di bottoni in un array di stringhe
-  return this.prenotazione.map((fila) =>
-    fila.map( x => x.value)
-  );
-}
+//posti inseriti a priori con nomi prestabiliti
+teatro.platea[2][1] = 'Alessio';
+teatro.platea[3][4] = 'Gianna';
+teatro.palchi[3][1] = 'Luigi';
+
+//chaimata e inserimento nelle variabili della funzione OrdinePrenotazione per prenotare i posti in platea e sui palchi
+var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
+var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, 'palchi');
+
+//al click richiama la funzione mostraTeatro che richiama la funzione toArray e mostrando in console il teatro come un array di stringhe e non di pulsanti
+document.getElementById('Vedi').addEventListener('click', mostraTeatro);
