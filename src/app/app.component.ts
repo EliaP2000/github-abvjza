@@ -1,5 +1,9 @@
 import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 import { Component, VERSION } from '@angular/core';
+import { Observable } from 'rxjs'; //viene importata la funzione per l'Observable
+import { ajax, AjaxResponse, AjaxRequest, AjaxError } from 'rxjs/ajax'; //vengono importate le funzioni per ajax
+import './components.css';
+
 
 @Component({
   selector: 'my-app',
