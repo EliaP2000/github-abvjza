@@ -31,12 +31,12 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
   }
   selezionaPosto () { //input box per inserire un nominativo da inserire nel nostro teatro. Inserito il nominativo si fa click su un posto e il nominativo viene registrato nel bottone in corrispondenza al posto. Insieme, il colore del tasto diventa rosso per segnalare che il posto è occupato, e il contenuto dell'input box viene cancellato.
     if ( prenotaEl.value !== "" ) {
-      this.value = prenotaEl.value;
-      this.style.color = "red";
+      //this.value = prenotaEl.value;
+      //this.style.color = "red";
       prenotaEl.value="";
     }
-    else
-      nomeEl.innerHTML = this.value 
+  //  else
+      //nomeEl.innerHTML = this.value 
   };
  toArray() { //funzione che trasforma l'array di bottoni in un array di stringhe
     return this.prenotazione.map((fila) =>
