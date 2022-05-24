@@ -38,7 +38,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
     else
       nomeEl.innerHTML = this.value 
   };
-  toArray() { //funzione che trasforma l'array di bottoni in un array di stringhe
+ toArray() { //funzione che trasforma l'array di bottoni in un array di stringhe
     return this.prenotazione.map((fila) =>
       fila.map( x => x.value)
     );
