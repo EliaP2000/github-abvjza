@@ -117,16 +117,11 @@ function setValue() { //creazione dell'Observable per la set
   });
 }
 
-
 function mostraTeatro() { //mostra l'array risultante
   console.log(plateaPrenotazione.toArray());
   console.log(palchiPrenotazione.toArray());
  }
 
-//posti inseriti a priori con nomi prestabiliti
-teatro.platea[2][1] = 'Alessio';
-teatro.platea[3][4] = 'Gianna';
-teatro.palchi[3][1] = 'Luigi';
 
 //chaimata e inserimento nelle variabili della funzione OrdinePrenotazione per prenotare i posti in platea e sui palchi
 var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
