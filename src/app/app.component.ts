@@ -13,6 +13,7 @@ export class AppComponent  {
   name = 'Angular ' + VERSION.major;
 }
 
+
 class ordinePrenotazione { //per eliminare il problema della ripetizione delle strutture
   prenotazione = [];
   value: string;
