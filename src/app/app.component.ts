@@ -128,4 +128,4 @@ var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
 var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, 'palchi');
 
 //al click richiama la funzione mostraTeatro che richiama la funzione toArray e mostrando in console il teatro come un array di stringhe e non di pulsanti
-document.getElementById('Vedi').addEventListener('click', mostraTeatro);
+document.getElementById('Vedi').addEventListener('click', mostraTeatro,true);
