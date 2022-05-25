@@ -107,7 +107,7 @@ function setValue() { //creazione dell'Observable per la set
     method: 'POST',
     url:URL + '/set?key=' + key,
     crossDomain: true,
-    body: document.getElementById('data').value
+    body: (document.getElementById('data') as HTMLInputElement).value
   })
   obs.subscribe({
     next: (res: AjaxResponse<any>) => {
