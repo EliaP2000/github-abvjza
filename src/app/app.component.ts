@@ -64,6 +64,59 @@ const teatro = { //stampa la platea e i palchi
   palchi: Array(nfilePalchi).fill("").map(() => Array(npostiPalchi).fill("x")),
 };
 
+const URL: string =
+  'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint'; //URL del sito da cui prendere le informazioni
+var key: string;
+document.getElementById('newbtn').addEventListener('click', newKey); //al click funzione di new, set e get
+document.getElementById('setbtn').addEventListener('click', setValue);
+document.getElementById('getbtn').addEventListener('click', getValue);
+
+function newKey() {
+  const obs = ajax({ //creazione dell'Observable per la nuova chiave
+    method: 'GET',
+    url: URL + '/new?secret=ssw2022', //utilizzo della chiave segreta per il sito
+    crossDomain: true,
+  })
+  obs.subscribe({
+    next: (res: AjaxResponse<any>) => {
+      key = res.response;
+      document.getElementById('key').innerHTML = key; //genera una nuova chiave dal sito la stampa in output accanto al pulsante new
+    },
+    error: (err: AjaxError) => console.error(err.response),
+  });
+}
+
+function getValue() { //creazione dell'Observable per la get
+  const obs = ajax({
+    method: 'GET',
+    url: URL + '/get?key=' + key,
+    crossDomain: true,
+  });
+  obs.subscribe({
+    next: (res: AjaxResponse<any>) => {
+      document.getElementById('output').innerHTML = res.response; //se premuto il pulsante get da in output il valore preso nel set
+    },
+    error: (err: AjaxError) => console.error(err.response),
+  });
+}
+
+function setValue() { //creazione dell'Observable per la set
+  console.log(document.getElementById('data'));
+  const obs = ajax({
+    method: 'POST',
+    url:URL + '/set?key=' + key,
+    crossDomain: true,
+    body: document.getElementById('data').value
+  })
+  obs.subscribe({
+    next: (res: AjaxResponse<any>) => {
+      document.getElementById('output').innerHTML = 'Ok!'; //response se il nuovo valore venisse settato
+    },
+    error: (err: AjaxError) => console.error(err.response),
+  });
+}
+
+
 function mostraTeatro() { //mostra l'array risultante
   console.log(plateaPrenotazione.toArray());
   console.log(palchiPrenotazione.toArray());
