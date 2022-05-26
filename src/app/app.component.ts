@@ -24,14 +24,14 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
     this.prenotazione = posti.map((fila, i) => { 
       var p = fila.map((nome, j) => {
         var btn = document.createElement('button'); //crea i bottoni
-        element.appendChild(btn);
+        //element.appendChild(btn);
         btn.value = nome;
         btn.style.color = (nome !== "x") ? 'red' : 'green'; //cambio di colore se contenente un nome oppure una x (posto non prenotato)
         btn.innerHTML = 'P' + (j + 1) + (i + 1); 
         btn.addEventListener('click', this.selezionaPosto); //selezione il posto al click restituendo successivamente il valore del bottone
         return btn;
       });
-      element.appendChild(document.createElement('br'));
+      //element.appendChild(document.createElement('br'));
       return p;
     });
   }
@@ -68,9 +68,9 @@ const teatro = { //stampa la platea e i palchi
 const URL: string =
   'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint'; //URL del sito da cui prendere le informazioni
 var key: string;
-document.getElementById('newbtn').addEventListener('click', newKey); //al click funzione di new, set e get
+/*document.getElementById('newbtn').addEventListener('click', newKey); //al click funzione di new, set e get
 document.getElementById('setbtn').addEventListener('click', setValue);
-document.getElementById('getbtn').addEventListener('click', getValue);
+document.getElementById('getbtn').addEventListener('click', getValue);*/
 
 function newKey() {
   const obs = ajax({ //creazione dell'Observable per la nuova chiave
@@ -128,4 +128,4 @@ var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
 var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, 'palchi');
 
 //al click richiama la funzione mostraTeatro che richiama la funzione toArray e mostrando in console il teatro come un array di stringhe e non di pulsanti
-document.getElementById('Vedi').addEventListener('click', mostraTeatro,true);
+//document.getElementById('Vedi').addEventListener('click', mostraTeatro);
