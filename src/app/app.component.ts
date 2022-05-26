@@ -123,7 +123,7 @@ function mostraTeatro() { //mostra l'array risultante
  }
 
 
-//chaimata e inserimento nelle variabili della funzione OrdinePrenotazione per prenotare i posti in platea e sui palchi
+//chiamata e inserimento nelle variabili della funzione OrdinePrenotazione per prenotare i posti in platea e sui palchi
 var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
 var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, 'palchi');
 
