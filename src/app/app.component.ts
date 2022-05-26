@@ -24,7 +24,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
     this.prenotazione = posti.map((fila, i) => { 
       var p = fila.map((nome, j) => {
         var btn = document.createElement('button'); //crea i bottoni
-        //element.appendChild(btn);
+        element.appendChild(btn);
         btn.value = nome;
         btn.style.color = (nome !== "x") ? 'red' : 'green'; //cambio di colore se contenente un nome oppure una x (posto non prenotato)
         btn.innerHTML = 'P' + (j + 1) + (i + 1); 
@@ -128,4 +128,5 @@ var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
 var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, 'palchi');
 
 //al click richiama la funzione mostraTeatro che richiama la funzione toArray e mostrando in console il teatro come un array di stringhe e non di pulsanti
-//document.getElementById('Vedi').addEventListener('click', mostraTeatro);
+document.getElementById('Vedi');
+document.addEventListener('click', mostraTeatro);
