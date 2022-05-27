@@ -18,7 +18,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
   prenotazione = [];
   value: string;
   style: any;
-  constructor(posti: any[], elementName: string) { //Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni
+  constructor(posti: any[], elementName: string|HTMLElement) { //Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni
     var element = document.getElementById(elementName);
     //crea i bottoni e le file di bottoni a ricreare il teatro che vogliamo costruire. Poi li inserisce nell'array prenotazione
     this.prenotazione = posti.map((fila, i) => { 
@@ -53,6 +53,8 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
 
 const prenotaEl = (document.getElementById('prenota') as HTMLInputElement);
 const nomeEl = (document.getElementById('nome') as HTMLInputElement);
+const nplatea = (document.getElementById('platea') as HTMLInputElement);
+const npalchi = (document.getElementById('palchi') as HTMLInputElement);
 
 //costanti che definiscono la grandezza del teatro 
 const nfilePlatea = 7;
@@ -124,8 +126,8 @@ function mostraTeatro() { //mostra l'array risultante
 
 
 //chiamata e inserimento nelle variabili della funzione OrdinePrenotazione per prenotare i posti in platea e sui palchi
-var plateaPrenotazione = new ordinePrenotazione(teatro.platea, 'platea');
-var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, 'palchi');
+var plateaPrenotazione = new ordinePrenotazione(teatro.platea, nplatea);
+var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, npalchi);
 
 //al click richiama la funzione mostraTeatro che richiama la funzione toArray e mostrando in console il teatro come un array di stringhe e non di pulsanti
 document.getElementById('Vedi');
