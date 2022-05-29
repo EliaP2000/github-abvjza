@@ -31,7 +31,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
         btn.addEventListener('click', this.selezionaPosto); //selezione il posto al click restituendo successivamente il valore del bottone
         return btn;
       });
-      elementName.appendChild(document.createElement('br'));
+      elementName.appendChild(document.createElement('br')); 
       return p;
     });
   }
@@ -54,7 +54,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
 const prenotaEl = (document.getElementById('prenota') as HTMLInputElement);
 const nomeEl = (document.getElementById('nome') as HTMLInputElement);
 const nplatea = (document.getElementById('platea') as HTMLElement);
-const npalchi = (document.getElementById('palchi')as HTMLElement);
+const npalchi = (document.getElementById('palchi') as HTMLElement);
 
 //costanti che definiscono la grandezza del teatro 
 const nfilePlatea = 7;
