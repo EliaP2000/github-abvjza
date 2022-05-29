@@ -31,7 +31,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
         btn.addEventListener('click', this.selezionaPosto); //selezione il posto al click restituendo successivamente il valore del bottone
         return btn;
       });
-      //element.appendChild(document.createElement('br'));
+      elementName.appendChild(document.createElement('br'));
       return p;
     });
   }
