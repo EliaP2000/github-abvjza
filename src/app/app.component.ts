@@ -53,8 +53,8 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
 
 const prenotaEl = (document.getElementById('prenota') as HTMLInputElement);
 const nomeEl = (document.getElementById('nome') as HTMLInputElement);
-const nplatea = document.getElementById('platea');
-const npalchi = document.getElementById('palchi');
+const nplatea = (document.getElementById('platea') as HTMLElement);
+const npalchi = (document.getElementById('palchi')as HTMLElement);
 
 //costanti che definiscono la grandezza del teatro 
 const nfilePlatea = 7;
