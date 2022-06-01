@@ -39,7 +39,6 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
     this.prenotazione = posti.map((fila, i) => { 
       var p = fila.map((nome, j) => {
         var btn = document.createElement('button'); //crea i bottoni
-        if(btn == null)
         elementName.appendChild(btn);
         btn.value = nome;
         btn.style.color = (nome !== "x") ? 'red' : 'green'; //cambio di colore se contenente un nome oppure una x (posto non prenotato)
