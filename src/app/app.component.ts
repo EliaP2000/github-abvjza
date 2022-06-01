@@ -29,7 +29,6 @@ const teatro = { //stampa la platea e i palchi
   palchi: Array(nfilePalchi).fill("").map(() => Array(npostiPalchi).fill("x")),
 };
 
-
 class ordinePrenotazione { //per eliminare il problema della ripetizione delle strutture
   prenotazione = [];
   value: any;
