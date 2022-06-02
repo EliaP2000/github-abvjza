@@ -33,7 +33,7 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
   prenotazione = [];
   value: any;
   style: CSSStyleDeclaration;
-  constructor(posti: any[][], elementName: ) { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni
+  constructor(posti: any[][], elementName) { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni
     //var element = document.getElementById(elementName);
     //crea i bottoni e le file di bottoni a ricreare il teatro che vogliamo costruire. Poi li inserisce nell'array prenotazione*/
     this.prenotazione = posti.map((fila, i) => { 
