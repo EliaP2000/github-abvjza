@@ -15,8 +15,8 @@ export class AppComponent  {
 
 const prenotaEl = (document.getElementById('prenota') as HTMLInputElement);
 const nomeEl = (document.getElementById('nome') as HTMLInputElement);
-const nplatea = (document.getElementById('platea') as HTMLElement);
-const npalchi = (document.getElementById('palchi') as HTMLElement);
+const nplatea = (document.getElementById('platea') as HTMLInputElement);
+const npalchi = (document.getElementById('palchi') as HTMLInputElement);
 
 //costanti che definiscono la grandezza del teatro 
 const nfilePlatea = 7;
