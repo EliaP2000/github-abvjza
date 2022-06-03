@@ -13,6 +13,7 @@ export class AppComponent  {
   name = 'Angular ' + VERSION.major;
 }
 
+
 const prenotaEl = (document.getElementById('prenota') as HTMLInputElement);
 const nomeEl = (document.getElementById('nome') as HTMLInputElement);
 const nplatea = (document.getElementById('platea') as HTMLInputElement); /********nuovi inserimenti */
@@ -29,25 +30,29 @@ const teatro = { //stampa la platea e i palchi
   palchi: Array(nfilePalchi).fill("").map(() => Array(npostiPalchi).fill("x")),
 };
 
-class ordinePrenotazione { //per eliminare il problema della ripetizione delle strutture
-  prenotazione = [];
-  value: any;
-  style: CSSStyleDeclaration;
-  constructor(posti: any[][], elementName: any) { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni*/
+export class ordinePrenotazione { //per eliminare il problema della ripetizione delle strutture
+  public elementName:any;
+  public posti: any[][];
+  public prenotazione = [];
+  public value: any;
+  public style: CSSStyleDeclaration;
+  ngOnInit () { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni*/
     //var element = document.getElementById(elementName);
     //crea i bottoni e le file di bottoni a ricreare il teatro che vogliamo costruire. Poi li inserisce nell'array prenotazione
-    this.prenotazione = posti.map((fila, i) => { 
+    this.elementName=document.getElementById("platea");
+    this.elementName=document.getElementById("palchi");
+    this.prenotazione = this.posti.map((fila, i) => { 
       var p = fila.map((nome, j) => {
         var btn = document.createElement('button'); //crea i bottoni
-        console.log(elementName); 
-        elementName.appendChild(btn);
+        console.log(this.elementName); 
+        this.elementName.appendChild(btn);
         btn.value = nome;
         btn.style.color = (nome !== "x") ? 'red' : 'green'; //cambio di colore se contenente un nome oppure una x (posto non prenotato)
         btn.innerHTML = 'P' + (j + 1) + (i + 1); 
         btn.addEventListener('click', this.selezionaPosto); //selezione il posto al click restituendo successivamente il valore del bottone
         return btn;
       });
-      elementName.appendChild(document.createElement('br')); 
+      this.elementName.appendChild(document.createElement('br')); 
       return p;
     });
   }
@@ -125,8 +130,8 @@ function mostraTeatro() { //mostra l'array risultante
  }
 
 //chiamata e inserimento nelle variabili della funzione OrdinePrenotazione per prenotare i posti in platea e sui palchi
-var plateaPrenotazione = new ordinePrenotazione(teatro.platea, nplatea);
-var palchiPrenotazione = new ordinePrenotazione(teatro.palchi, npalchi);
+var plateaPrenotazione = new ordinePrenotazione();
+var palchiPrenotazione = new ordinePrenotazione();
 
 //al click richiama la funzione mostraTeatro che richiama la funzione toArray e mostrando in console il teatro come un array di stringhe e non di pulsanti
 document.getElementById('Vedi');
