@@ -16,8 +16,8 @@ export class AppComponent  {
 
 const prenotaEl = (document.getElementById('prenota') as HTMLInputElement);
 const nomeEl = (document.getElementById('nome') as HTMLInputElement);
-const nplatea = (document.getElementById('platea') as HTMLInputElement); /********nuovi inserimenti */
-const npalchi = (document.getElementById('palchi') as HTMLInputElement);/*********nuovi inserimenti */
+const nplatea = (document.getElementById('platea') as HTMLInputElement);
+const npalchi = (document.getElementById('palchi') as HTMLInputElement);
 
 //costanti che definiscono la grandezza del teatro 
 const nfilePlatea = 7;
@@ -39,8 +39,8 @@ export class ordinePrenotazione { //per eliminare il problema della ripetizione 
   ngOnInit () { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni*/
     //var element = document.getElementById(elementName);
     //crea i bottoni e le file di bottoni a ricreare il teatro che vogliamo costruire. Poi li inserisce nell'array prenotazione
-    this.elementName=document.getElementById("platea");
-    this.elementName=document.getElementById("palchi");
+    this.elementName=document.getElementById('platea');
+    this.elementName=document.getElementById('palchi');
     this.prenotazione = this.posti.map((fila, i) => { 
       var p = fila.map((nome, j) => {
         var btn = document.createElement('button'); //crea i bottoni
