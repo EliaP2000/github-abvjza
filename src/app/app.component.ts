@@ -34,20 +34,20 @@ class ordinePrenotazione { //per eliminare il problema della ripetizione delle s
   value: any;
   style: CSSStyleDeclaration;
   constructor(posti: any[][], elementName) { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni*/
-    var element = document.getElementById(elementName);
+    //var element = document.getElementById(elementName);
     //crea i bottoni e le file di bottoni a ricreare il teatro che vogliamo costruire. Poi li inserisce nell'array prenotazione
     this.prenotazione = posti.map((fila, i) => { 
       var p = fila.map((nome, j) => {
         var btn = document.createElement('button'); //crea i bottoni
         console.log(elementName); 
-        element.appendChild(btn);
+        elementName.appendChild(btn);
         btn.value = nome;
         btn.style.color = (nome !== "x") ? 'red' : 'green'; //cambio di colore se contenente un nome oppure una x (posto non prenotato)
         btn.innerHTML = 'P' + (j + 1) + (i + 1); 
         btn.addEventListener('click', this.selezionaPosto); //selezione il posto al click restituendo successivamente il valore del bottone
         return btn;
       });
-      element.appendChild(document.createElement('br')); 
+      elementName.appendChild(document.createElement('br')); 
       return p;
     });
   }
