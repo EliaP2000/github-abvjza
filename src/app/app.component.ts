@@ -30,13 +30,13 @@ const teatro = { //stampa la platea e i palchi
   palchi: Array(nfilePalchi).fill("").map(() => Array(npostiPalchi).fill("x")),
 };
 
-export class ordinePrenotazione { //per eliminare il problema della ripetizione delle strutture
+class ordinePrenotazione { //per eliminare il problema della ripetizione delle strutture
   public elementName:any;
   public posti: any[][];
   public prenotazione = [];
   public value: any;
   public style: CSSStyleDeclaration;
-  ngOnInit () { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni*/
+  ngOnInit(): void { /*Il costruttore prende come parametri: l'array con i posti già prenotati e il nome dell'elemento HTML che ospita i bottoni*/
     //var element = document.getElementById(elementName);
     //crea i bottoni e le file di bottoni a ricreare il teatro che vogliamo costruire. Poi li inserisce nell'array prenotazione
     this.elementName=document.getElementById('platea');
